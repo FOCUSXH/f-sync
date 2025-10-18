@@ -21,7 +21,7 @@ type AppConfig struct {
 // ServerConfig HTTP 服务配置
 type ServerConfig struct {
 	Host         string        `mapstructure:"host"`
-	Port         string           `mapstructure:"port"`
+	Port         string        `mapstructure:"port"`
 	ReadTimeout  time.Duration `mapstructure:"read_timeout"`
 	WriteTimeout time.Duration `mapstructure:"write_timeout"`
 	CorsEnabled  bool          `mapstructure:"cors_enabled"`
@@ -54,7 +54,8 @@ type LoggerConfig struct {
 
 // JWTConfig JWT 认证配置
 type JWTConfig struct {
-	Secret             string        `mapstructure:"secret"`
-	AccessTokenExpire  time.Duration `mapstructure:"access_token_expire"`
-	RefreshTokenExpire time.Duration `mapstructure:"refresh_token_expire"`
+	Access             string `mapstructure:"access_secret"`
+	Refresh            string `mapstructure:"refresh_secret"`
+	AccessTokenExpire  int    `mapstructure:"access_token_expire"`
+	RefreshTokenExpire int    `mapstructure:"refresh_token_expire"`
 }

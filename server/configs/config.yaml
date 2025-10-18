@@ -37,7 +37,7 @@ logger:
 
 # JWT 认证配置
 jwt:
-  access_secret: "your_strong_access_secret_32_bytes!!"
-  refresh_secret: "your_strong_refresh_secret_32_bytes!!"
-  access_token_expire: 15m
-  refresh_token_expire: 168h
+  access_secret: "f_sync_access_secret"
+  refresh_secret: "f_sync_refresh_secret"
+  access_token_expire: 3600
+  refresh_token_expire: 604800
