@@ -1,28 +1,25 @@
 package models
 
-// AuthReq 认证请求结构体
-type AuthReq struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
+// Config 是整个应用的配置根结构体
+type Config struct {
+	Logger LoggerConfig `mapstructure:"logger"`
+	Client ClientConfig `mapstructure:"client"`
 }
 
-// LoginResponse 登录响应结构体
-type LoginResponse struct {
-	Message      string `json:"message"`
-	AccessToken  string `json:"access_token"`
-	RefreshToken string `json:"refresh_token"`
-	UserUUID     string `json:"user_uuid"`
-	Salt         string `json:"salt"`
+// LoggerConfig Zap 日志配置
+type LoggerConfig struct {
+	Level            string   `mapstructure:"level"`
+	Env              string   `mapstructure:"env"`
+	Format           string   `mapstructure:"format"` // json 或 console
+	OutputPaths      []string `mapstructure:"output_paths"`
+	ErrorOutputPaths []string `mapstructure:"error_output_paths"`
+	EnableCaller     bool     `mapstructure:"enable_caller"`
+	EnableStacktrace bool     `mapstructure:"enable_stacktrace"`
 }
 
-// RegisterResponse 注册响应结构体
-type RegisterResponse struct {
-	Message  string `json:"message"`
-	UserUUID string `json:"user_uuid"`
-}
-
-// HealthCheckResponse 健康检查响应结构体
-type HealthCheckResponse struct {
-	Message string `json:"message"`
-	Status  string `json:"status"`
+type ClientConfig struct {
+	SyncDir    string `mapstructure:"sync_dir"`
+	ServerAddr string `mapstructure:"server_addr"`
+	TokenDir   string `mapstructure:"token_dir"`
+	Protocol   string `mapstructure:"protocol"`
 }

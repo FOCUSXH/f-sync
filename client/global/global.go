@@ -1,7 +1,12 @@
 package global
 
-import "go.uber.org/zap"
+import (
+	"fsync/client/models"
+
+	"go.uber.org/zap"
+)
 
 var (
-	Logger *zap.Logger
+	Configs *models.Config
+	Logger  *zap.Logger
 )

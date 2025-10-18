@@ -2,7 +2,7 @@ package logger
 
 import (
 	"fmt"
-	"fsync/server/global"
+	"fsync/client/global"
 	"os"
 	"path/filepath"
 	"time"
@@ -69,7 +69,7 @@ func InitLogger() error {
 	// 创建zap配置
 	config := zap.Config{
 		Level:            zap.NewAtomicLevelAt(level),
-		Development:      global.Configs.App.Env == "development",
+		Development:      global.Configs.Logger.Env == "development",
 		Encoding:         global.Configs.Logger.Format,
 		OutputPaths:      outputPaths,
 		ErrorOutputPaths: errorOutputPaths,

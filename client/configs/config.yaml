@@ -1,0 +1,15 @@
+# 日志配置（Zap）
+logger:
+  level: "debug"          # 可选: debug, info, warn, error, dpanic, panic, fatal
+  env: "development"
+  format: "console"       # 可选: json, console
+  output_paths: ["stdout", "client/logs/app.log"]
+  error_output_paths: ["stderr", "client/logs/error.log"]
+  enable_caller: true
+  enable_stacktrace: true # 仅在 level <= error 时启用
+
+client:
+  sync_dir: '/home/lake/fsync-test-dir'        # 默认同步目录
+  server_addr: "localhost:8080"  # 服务器地址
+  token_dir: "~/.fsync"     # Token存储目录
+  protocol: "https"         # 协议 (http 或 https)
