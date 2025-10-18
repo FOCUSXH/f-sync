@@ -1,0 +1,43 @@
+# 应用基本信息
+app:
+  name: "fsync"
+  version: "1.0.0"
+  env: "development"  # 可选: development, staging, production
+
+# HTTP 服务配置
+server:
+  host: "0.0.0.0"
+  port: ":18084"
+  read_timeout: 30s
+  write_timeout: 30s
+  cors_enabled: true
+
+# 数据库配置（MySQL）
+database:
+  driver: "mysql"
+  host: "127.0.0.1"
+  port: 13306
+  name: "fsync_rebuild"
+  username: "root"
+  password: "lake111111"
+  charset: "utf8mb4"
+  parse_time: true
+  max_open_conns: 100
+  max_idle_conns: 10
+  conn_max_lifetime: 30m
+
+# 日志配置（Zap）
+logger:
+  level: "debug"          # 可选: debug, info, warn, error, dpanic, panic, fatal
+  format: "console"       # 可选: json, console
+  output_paths: ["stdout", "server/logs/app.log"]
+  error_output_paths: ["stderr", "server/logs/error.log"]
+  enable_caller: true
+  enable_stacktrace: true # 仅在 level <= error 时启用
+
+# JWT 认证配置
+jwt:
+  access_secret: "your_strong_access_secret_32_bytes!!"
+  refresh_secret: "your_strong_refresh_secret_32_bytes!!"
+  access_token_expire: 15m
+  refresh_token_expire: 168h
