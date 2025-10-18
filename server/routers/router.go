@@ -2,7 +2,7 @@ package routers
 
 import (
 	"fmt"
-	"fsync/global"
+	"fsync/server/global"
 	"net/http"
 	"time"
 
