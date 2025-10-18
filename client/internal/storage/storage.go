@@ -1,8 +1,10 @@
+// client/internal/storage/storage.go
 package storage
 
 import (
 	"fmt"
 	"fsync/client/global"
+	"fsync/client/internal/command"
 	"fsync/client/internal/watcher"
 	"os"
 
@@ -10,10 +12,12 @@ import (
 	"go.uber.org/zap"
 )
 
+
+var commandManager *command.CommandManager
+
 // StartFileSync 启动文件同步功能
 func StartFileSync() error {
 	var dir string
-	// 如果配置文件中有同步目录，则使用配置文件中的目录
 	if global.Configs.Client.SyncDir != "" {
 		dir = global.Configs.Client.SyncDir
 		info, err := os.Stat(dir)
@@ -28,23 +32,73 @@ func StartFileSync() error {
 		return fmt.Errorf("错误: 必须在配置文件中指定同步目录")
 	}
 
-	// 在一个goroutine中运行文件监控，避免阻塞主程序
+
+	// 创建命令管理器，包含异步队列, bufferSize: 队列大小，numWorkers: 工作协程数量
+	commandManager = command.NewCommandManager(global.Logger, 100, 2)
+
 	go func() {
 		defer global.Logger.Sync() // 刷新缓冲区
+		defer commandManager.Stop() // 确保在监控退出时停止队列
 
 		err := watcher.WatchDirRecursive(dir, func(event fsnotify.Event) {
-			// 根据不同的操作类型记录不同的日志
+			var cmd command.Command
 			switch {
 			case event.Op&fsnotify.Create == fsnotify.Create:
-				global.Logger.Info("文件创建事件", zap.String("file", event.Name))
+				// 检查是文件还是目录
+				fileInfo, err := os.Stat(event.Name)
+				if err != nil {
+					global.Logger.Error("无法获取文件信息", zap.String("file", event.Name), zap.Error(err))
+					return
+				}
+				
+				if fileInfo.IsDir() {
+					cmd = &command.FileCommand{
+						Action:      "create_dir",
+						FilePath:    event.Name,
+						Description: fmt.Sprintf("创建目录: %s", event.Name),
+						Logger:      global.Logger,
+					}
+				} else {
+					cmd = &command.FileCommand{
+						Action:      "create_file",
+						FilePath:    event.Name,
+						Description: fmt.Sprintf("创建文件: %s", event.Name),
+						Logger:      global.Logger,
+					}
+				}
 			case event.Op&fsnotify.Write == fsnotify.Write:
-				global.Logger.Info("文件修改事件", zap.String("file", event.Name))
+				cmd = &command.FileCommand{
+					Action:      "write",
+					FilePath:    event.Name,
+					Description: fmt.Sprintf("修改文件: %s", event.Name),
+					Logger:      global.Logger,
+				}
 			case event.Op&fsnotify.Remove == fsnotify.Remove:
-				global.Logger.Info("文件删除事件", zap.String("file", event.Name))
+				cmd = &command.FileCommand{
+					Action:      "remove",
+					FilePath:    event.Name,
+					Description: fmt.Sprintf("删除文件: %s", event.Name),
+					Logger:      global.Logger,
+				}
 			case event.Op&fsnotify.Rename == fsnotify.Rename:
-				global.Logger.Info("文件重命名事件", zap.String("file", event.Name))
+				cmd = &command.FileCommand{
+					Action:      "rename",
+					FilePath:    event.Name,
+					Description: fmt.Sprintf("重命名文件: %s", event.Name),
+					Logger:      global.Logger,
+				}
 			case event.Op&fsnotify.Chmod == fsnotify.Chmod:
-				global.Logger.Info("文件权限修改事件", zap.String("file", event.Name))
+				cmd = &command.FileCommand{
+					Action:      "chmod",
+					FilePath:    event.Name,
+					Description: fmt.Sprintf("修改文件权限: %s", event.Name),
+					Logger:      global.Logger,
+				}
+			}
+			
+			// 将命令添加到管理器内部异步执行
+			if cmd != nil {
+				commandManager.AddCommand(cmd)
 			}
 		})
 		if err != nil {
@@ -52,4 +106,20 @@ func StartFileSync() error {
 		}
 	}()
 	return nil
+}
+
+// 提供一个外部接口来撤销上一个操作
+func UndoLastAction() error {
+	if commandManager != nil {
+		return commandManager.UndoLast()
+	}
+	return fmt.Errorf("command manager not initialized")
+}
+
+// 提供一个外部接口来撤销所有操作
+func UndoAllActions() error {
+	if commandManager != nil {
+		return commandManager.UndoAll()
+	}
+	return fmt.Errorf("command manager not initialized")
 }
