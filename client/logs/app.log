@@ -204,3 +204,172 @@ fsync/client/internal/storage.StartFileSync.func1
 2025-10-19T00:22:03.068+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "创建文件: /home/lake/fsync-test-dir/abc/a.txt"}
 2025-10-19T00:22:03.068+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件权限: /home/lake/fsync-test-dir/abc/a.txt"}
 2025-10-19T00:22:03.068+0800	[35mDEBUG[0m	command/command.go:76	添加命令到命令队列并准备异步执行	{"description": "修改文件权限: /home/lake/fsync-test-dir/abc/a.txt"}
+2025-10-19T10:21:02.914+0800	[34mINFO[0m	cmd/main.go:24	初始化日志成功
+2025-10-19T10:21:02.916+0800	[34mINFO[0m	storage/storage.go:30	同步目录	{"目录信息": {}}
+2025-10-19T10:21:02.916+0800	[34mINFO[0m	watcher/watcher.go:24	开始监控目录	{"path": "/home/lake/fsync-test-dir"}
+2025-10-19T10:21:02.917+0800	[34mINFO[0m	watcher/watcher.go:24	开始监控目录	{"path": "/home/lake/fsync-test-dir/abc"}
+2025-10-19T10:21:11.248+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "创建文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:21:11.248+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "创建文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:21:11.248+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:21:11.248+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:21:11.248+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "创建文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:21:11.248+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "create_file", "file": "/home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:21:11.249+0800	[34mINFO[0m	command/command.go:37	创建文件
+2025-10-19T10:21:11.248+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:21:11.249+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "chmod", "file": "/home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:21:11.249+0800	[34mINFO[0m	command/command.go:49	修改文件权限
+2025-10-19T10:21:11.249+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:21:11.249+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "创建文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:22:34.927+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "创建目录: /home/lake/fsync-test-dir/aaa"}
+2025-10-19T10:22:34.927+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "创建目录: /home/lake/fsync-test-dir/aaa"}
+2025-10-19T10:22:34.927+0800	[34mINFO[0m	watcher/watcher.go:57	发现新目录，开始监控	{"文件：": "/home/lake/fsync-test-dir/aaa"}
+2025-10-19T10:22:34.927+0800	[34mINFO[0m	watcher/watcher.go:24	开始监控目录	{"path": "/home/lake/fsync-test-dir/aaa"}
+2025-10-19T10:22:34.927+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "创建目录: /home/lake/fsync-test-dir/aaa"}
+2025-10-19T10:22:34.927+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "create_dir", "file": "/home/lake/fsync-test-dir/aaa"}
+2025-10-19T10:22:34.927+0800	[34mINFO[0m	command/command.go:34	创建目录
+2025-10-19T10:22:34.927+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "创建目录: /home/lake/fsync-test-dir/aaa"}
+2025-10-19T10:40:35.804+0800	[34mINFO[0m	cmd/main.go:24	初始化日志成功
+2025-10-19T10:40:35.805+0800	[34mINFO[0m	storage/storage.go:30	同步目录	{"目录信息": {}}
+2025-10-19T10:40:35.805+0800	[34mINFO[0m	watcher/watcher.go:24	开始监控目录	{"path": "/home/lake/fsync-test-dir"}
+2025-10-19T10:40:35.807+0800	[34mINFO[0m	watcher/watcher.go:24	开始监控目录	{"path": "/home/lake/fsync-test-dir/aaa"}
+2025-10-19T10:40:35.807+0800	[34mINFO[0m	watcher/watcher.go:24	开始监控目录	{"path": "/home/lake/fsync-test-dir/abc"}
+2025-10-19T10:40:37.342+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:37.342+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:37.342+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:37.342+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "chmod", "file": "/home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:37.342+0800	[34mINFO[0m	command/command.go:49	修改文件权限
+2025-10-19T10:40:37.343+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:39.144+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:39.144+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:39.144+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:39.144+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "chmod", "file": "/home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:39.144+0800	[34mINFO[0m	command/command.go:49	修改文件权限
+2025-10-19T10:40:39.144+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:40.213+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:40.213+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:40.213+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:40.213+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "chmod", "file": "/home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:40.213+0800	[34mINFO[0m	command/command.go:49	修改文件权限
+2025-10-19T10:40:40.213+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:48.123+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "创建文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "创建文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "创建文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "create_file", "file": "/home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:37	创建文件
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "创建文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[31mERROR[0m	storage/storage.go:50	无法获取文件信息	{"file": "/home/lake/fsync-test-dir/.a.txq.swx", "error": "stat /home/lake/fsync-test-dir/.a.txq.swx: no such file or directory"}
+fsync/client/internal/storage.StartFileSync.func1.1
+	/home/lake/proj/playground/fsync-rebuild/fsync/client/internal/storage/storage.go:50
+fsync/client/internal/watcher.WatchDirRecursive
+	/home/lake/proj/playground/fsync-rebuild/fsync/client/internal/watcher/watcher.go:52
+fsync/client/internal/storage.StartFileSync.func1
+	/home/lake/proj/playground/fsync-rebuild/fsync/client/internal/storage/storage.go:43
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "删除文件: /home/lake/fsync-test-dir/.a.txq.swx"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "删除文件: /home/lake/fsync-test-dir/.a.txq.swx"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "删除文件: /home/lake/fsync-test-dir/.a.txq.swx"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "remove", "file": "/home/lake/fsync-test-dir/.a.txq.swx"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:43	删除文件
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "删除文件: /home/lake/fsync-test-dir/.a.txq.swx"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "删除文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "删除文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "创建文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "创建文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "创建文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "create_file", "file": "/home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:37	创建文件
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "创建文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "删除文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "remove", "file": "/home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:43	删除文件
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "删除文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "write", "file": "/home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:40	修改文件
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件权限: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件权限: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "chmod", "file": "/home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/command.go:49	修改文件权限
+2025-10-19T10:40:48.124+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:52.206+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:52.207+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:52.207+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "write", "file": "/home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:52.207+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:52.207+0800	[34mINFO[0m	command/command.go:40	修改文件
+2025-10-19T10:40:52.207+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:57.594+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:57.594+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:57.594+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:57.594+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "write", "file": "/home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:57.594+0800	[34mINFO[0m	command/command.go:40	修改文件
+2025-10-19T10:40:57.594+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.668+0800	[31mERROR[0m	storage/storage.go:50	无法获取文件信息	{"file": "/home/lake/fsync-test-dir/4913", "error": "stat /home/lake/fsync-test-dir/4913: no such file or directory"}
+fsync/client/internal/storage.StartFileSync.func1.1
+	/home/lake/proj/playground/fsync-rebuild/fsync/client/internal/storage/storage.go:50
+fsync/client/internal/watcher.WatchDirRecursive
+	/home/lake/proj/playground/fsync-rebuild/fsync/client/internal/watcher/watcher.go:52
+fsync/client/internal/storage.StartFileSync.func1
+	/home/lake/proj/playground/fsync-rebuild/fsync/client/internal/storage/storage.go:43
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件权限: /home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件权限: /home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "删除文件: /home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "remove", "file": "/home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:43	删除文件
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "删除文件: /home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "chmod", "file": "/home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:49	修改文件权限
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "删除文件: /home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "删除文件: /home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/4913"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "重命名文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "重命名文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "创建文件: /home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "创建文件: /home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "重命名文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "创建文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "创建文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "rename", "file": "/home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:46	重命名文件
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "重命名文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "创建文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "create_file", "file": "/home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:37	创建文件
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "创建文件: /home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "create_file", "file": "/home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/command.go:37	创建文件
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "创建文件: /home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.669+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "修改文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.669+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "write", "file": "/home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.669+0800	[34mINFO[0m	command/command.go:40	修改文件
+2025-10-19T10:40:59.669+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "修改文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.669+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.668+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "创建文件: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "chmod", "file": "/home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/command.go:49	修改文件权限
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "修改文件权限: /home/lake/fsync-test-dir/a.txq"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "删除文件: /home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "删除文件: /home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 0, "command_desc": "删除文件: /home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "write", "file": "/home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/command.go:40	修改文件
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "remove", "file": "/home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/command.go:43	删除文件
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "修改文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.671+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 0, "command_desc": "删除文件: /home/lake/fsync-test-dir/a.txq~"}
+2025-10-19T10:40:59.672+0800	[34mINFO[0m	command/invoker.go:65	工作指令已加入队列	{"command_desc": "删除文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.672+0800	[34mINFO[0m	command/command.go:97	添加命令到命令队列并准备异步执行	{"description": "删除文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.672+0800	[34mINFO[0m	command/invoker.go:48	工作线程开始执行命令	{"worker_id": 1, "command_desc": "删除文件: /home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.672+0800	[34mINFO[0m	command/command.go:28	执行文件操作命令	{"action": "remove", "file": "/home/lake/fsync-test-dir/.a.txq.swp"}
+2025-10-19T10:40:59.672+0800	[34mINFO[0m	command/command.go:43	删除文件
+2025-10-19T10:40:59.672+0800	[34mINFO[0m	command/invoker.go:52	工作线程已完成命令执行	{"worker_id": 1, "command_desc": "删除文件: /home/lake/fsync-test-dir/.a.txq.swp"}

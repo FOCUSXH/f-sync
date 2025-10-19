@@ -67,6 +67,7 @@ func StartFileSync() error {
 					}
 				}
 			case event.Op&fsnotify.Write == fsnotify.Write:
+				
 				cmd = &command.FileCommand{
 					Action:      "write",
 					FilePath:    event.Name,
